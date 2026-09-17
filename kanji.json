@@ -1,0 +1,1447 @@
+[
+  {
+    "id": "n5_001",
+    "kanji": "日",
+    "level": "N5",
+    "strokes": 4,
+    "meanings": [
+      "Sun",
+      "Day"
+    ],
+    "onyomi": [
+      "ニチ",
+      "ジツ"
+    ],
+    "kunyomi": [
+      "ひ (sun)",
+      "-び (sun/day suffix)",
+      "-か (day counter)"
+    ],
+    "examples": [
+      {
+        "japanese": "毎日 (まいにち)",
+        "english": "Every day"
+      },
+      {
+        "japanese": "休日 (きゅうじつ)",
+        "english": "Holiday"
+      },
+      {
+        "japanese": "三日 (みっか)",
+        "english": "Third day"
+      },
+      {
+        "japanese": "日記 (にっき)",
+        "english": "Diary"
+      },
+      {
+        "japanese": "日本 (にほん)",
+        "english": "Japan"
+      }
+    ]
+  },
+  {
+    "id": "n5_002",
+    "kanji": "月",
+    "level": "N5",
+    "strokes": 4,
+    "meanings": [
+      "Moon",
+      "Month"
+    ],
+    "onyomi": [
+      "ゲツ",
+      "ガツ"
+    ],
+    "kunyomi": [
+      "つき (moon / month)"
+    ],
+    "examples": [
+      {
+        "japanese": "今月 (こんげつ)",
+        "english": "This month"
+      },
+      {
+        "japanese": "一月 (いちがつ)",
+        "english": "January"
+      },
+      {
+        "japanese": "毎月 (まいつき)",
+        "english": "Every month"
+      },
+      {
+        "japanese": "来月 (らいげつ)",
+        "english": "Next month"
+      }
+    ]
+  },
+  {
+    "id": "n5_003",
+    "kanji": "火",
+    "level": "N5",
+    "strokes": 4,
+    "meanings": [
+      "Fire"
+    ],
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "ひ (fire)"
+    ],
+    "examples": [
+      {
+        "japanese": "火山 (かざん)",
+        "english": "Volcano"
+      },
+      {
+        "japanese": "火曜日 (かようび)",
+        "english": "Tuesday"
+      },
+      {
+        "japanese": "花火 (はなび)",
+        "english": "Fireworks"
+      }
+    ]
+  },
+  {
+    "id": "n5_004",
+    "kanji": "水",
+    "level": "N5",
+    "strokes": 4,
+    "meanings": [
+      "Water"
+    ],
+    "onyomi": [
+      "スイ"
+    ],
+    "kunyomi": [
+      "みず (water)"
+    ],
+    "examples": [
+      {
+        "japanese": "水曜日 (すいようび)",
+        "english": "Wednesday"
+      },
+      {
+        "japanese": "水道 (すいどう)",
+        "english": "Water supply"
+      },
+      {
+        "japanese": "飲み水 (のみみず)",
+        "english": "Drinking water"
+      }
+    ]
+  },
+  {
+    "id": "n5_005",
+    "kanji": "木",
+    "level": "N5",
+    "strokes": 4,
+    "meanings": [
+      "Tree",
+      "Wood"
+    ],
+    "onyomi": [
+      "モク",
+      "ボク"
+    ],
+    "kunyomi": [
+      "き (tree)",
+      "こ- (tree prefix)"
+    ],
+    "examples": [
+      {
+        "japanese": "木曜日 (もくようび)",
+        "english": "Thursday"
+      },
+      {
+        "japanese": "大木 (たいぼく)",
+        "english": "Large tree"
+      }
+    ]
+  },
+  {
+    "id": "n5_006",
+    "kanji": "金",
+    "level": "N5",
+    "strokes": 8,
+    "meanings": [
+      "Gold",
+      "Money"
+    ],
+    "onyomi": [
+      "キン",
+      "コン"
+    ],
+    "kunyomi": [
+      "かね (money)"
+    ],
+    "examples": [
+      {
+        "japanese": "金曜日 (きんようび)",
+        "english": "Friday"
+      },
+      {
+        "japanese": "金魚 (きんぎょ)",
+        "english": "Goldfish"
+      }
+    ]
+  },
+  {
+    "id": "n5_007",
+    "kanji": "土",
+    "level": "N5",
+    "strokes": 3,
+    "meanings": [
+      "Earth",
+      "Soil"
+    ],
+    "onyomi": [
+      "ド",
+      "ト"
+    ],
+    "kunyomi": [
+      "つち (earth / soil)"
+    ],
+    "examples": [
+      {
+        "japanese": "土曜日 (どようび)",
+        "english": "Saturday"
+      },
+      {
+        "japanese": "土地 (とち)",
+        "english": "Land"
+      }
+    ]
+  },
+  {
+    "id": "n5_008",
+    "kanji": "山",
+    "level": "N5",
+    "strokes": 3,
+    "meanings": [
+      "Mountain"
+    ],
+    "onyomi": [
+      "サン",
+      "ザン"
+    ],
+    "kunyomi": [
+      "やま (mountain)"
+    ],
+    "examples": [
+      {
+        "japanese": "山水 (さんすい)",
+        "english": "Landscape"
+      },
+      {
+        "japanese": "火山 (かざん)",
+        "english": "Volcano"
+      },
+      {
+        "japanese": "山川 (やまかわ)",
+        "english": "Mountains and rivers"
+      }
+    ]
+  },
+  {
+    "id": "n5_009",
+    "kanji": "川",
+    "level": "N5",
+    "strokes": 3,
+    "meanings": [
+      "River"
+    ],
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "かわ (river)"
+    ],
+    "examples": [
+      {
+        "japanese": "山川 (さんせん)",
+        "english": "Mountains and rivers"
+      },
+      {
+        "japanese": "小川 (おがわ)",
+        "english": "Stream"
+      },
+      {
+        "japanese": "川上 (かわかみ)",
+        "english": "Upstream"
+      }
+    ]
+  },
+  {
+    "id": "n5_010",
+    "kanji": "大",
+    "level": "N5",
+    "strokes": 3,
+    "meanings": [
+      "Big",
+      "Large"
+    ],
+    "onyomi": [
+      "ダイ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "おお-きい (big)"
+    ],
+    "examples": [
+      {
+        "japanese": "大学 (だいがく)",
+        "english": "University"
+      },
+      {
+        "japanese": "大木 (たいぼく)",
+        "english": "Large tree"
+      }
+    ]
+  },
+  {
+    "id": "n5_011",
+    "kanji": "小",
+    "level": "N5",
+    "strokes": 3,
+    "meanings": [
+      "Small"
+    ],
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ちい-さい (small)",
+      "こ- (small prefix)",
+      "お- (small prefix)"
+    ],
+    "examples": [
+      {
+        "japanese": "小学校 (しょうがっこう)",
+        "english": "Elementary school"
+      },
+      {
+        "japanese": "小川 (おがわ)",
+        "english": "Stream"
+      }
+    ]
+  },
+  {
+    "id": "n5_012",
+    "kanji": "学",
+    "level": "N5",
+    "strokes": 8,
+    "meanings": [
+      "Study"
+    ],
+    "onyomi": [
+      "ガク"
+    ],
+    "kunyomi": [
+      "まな-ぶ (to study)"
+    ],
+    "examples": [
+      {
+        "japanese": "学校 (がっこう)",
+        "english": "School"
+      },
+      {
+        "japanese": "学生 (がくせい)",
+        "english": "Student"
+      }
+    ]
+  },
+  {
+    "id": "n5_013",
+    "kanji": "生",
+    "level": "N5",
+    "strokes": 5,
+    "meanings": [
+      "Life",
+      "Birth"
+    ],
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "い-きる (to live)",
+      "う-まれる (to be born)",
+      "なま (raw)"
+    ],
+    "examples": [
+      {
+        "japanese": "先生 (せんせい)",
+        "english": "Teacher"
+      },
+      {
+        "japanese": "一生 (いっしょう)",
+        "english": "Lifetime"
+      }
+    ]
+  },
+  {
+    "id": "n5_014",
+    "kanji": "先",
+    "level": "N5",
+    "strokes": 6,
+    "meanings": [
+      "Before",
+      "Ahead"
+    ],
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "さき (ahead)"
+    ],
+    "examples": [
+      {
+        "japanese": "先生 (せんせい)",
+        "english": "Teacher"
+      },
+      {
+        "japanese": "先月 (せんげつ)",
+        "english": "Last month"
+      }
+    ]
+  },
+  {
+    "id": "n5_015",
+    "kanji": "車",
+    "level": "N5",
+    "strokes": 7,
+    "meanings": [
+      "Car",
+      "Wheel"
+    ],
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "くるま (car)"
+    ],
+    "examples": [
+      {
+        "japanese": "電車 (でんしゃ)",
+        "english": "Train"
+      },
+      {
+        "japanese": "自転車 (じてんしゃ)",
+        "english": "Bicycle"
+      }
+    ]
+  },
+  {
+    "id": "n4_001",
+    "kanji": "旅",
+    "level": "N4",
+    "strokes": 10,
+    "meanings": [
+      "Trip",
+      "Travel"
+    ],
+    "onyomi": [
+      "リョ"
+    ],
+    "kunyomi": [
+      "たび (trip / travel)"
+    ],
+    "examples": [
+      {
+        "japanese": "旅行 (りょこう)",
+        "english": "Travel"
+      },
+      {
+        "japanese": "旅館 (りょかん)",
+        "english": "Japanese inn"
+      },
+      {
+        "japanese": "旅人 (たびびと)",
+        "english": "Traveler"
+      }
+    ]
+  },
+  {
+    "id": "n4_002",
+    "kanji": "歌",
+    "level": "N4",
+    "strokes": 14,
+    "meanings": [
+      "Song",
+      "Sing"
+    ],
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "うた (song)",
+      "うた-う (to sing)"
+    ],
+    "examples": [
+      {
+        "japanese": "歌手 (かしゅ)",
+        "english": "Singer"
+      },
+      {
+        "japanese": "国歌 (こっか)",
+        "english": "National anthem"
+      },
+      {
+        "japanese": "歌声 (うたごえ)",
+        "english": "Singing voice"
+      }
+    ]
+  },
+  {
+    "id": "n4_003",
+    "kanji": "答",
+    "level": "N4",
+    "strokes": 12,
+    "meanings": [
+      "Answer",
+      "Reply"
+    ],
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "こた-える (to answer)",
+      "こた-え (answer)"
+    ],
+    "examples": [
+      {
+        "japanese": "返答 (へんとう)",
+        "english": "Reply"
+      },
+      {
+        "japanese": "問答 (もんどう)",
+        "english": "Dialogue"
+      }
+    ]
+  },
+  {
+    "id": "n4_004",
+    "kanji": "音",
+    "level": "N4",
+    "strokes": 9,
+    "meanings": [
+      "Sound",
+      "Noise"
+    ],
+    "onyomi": [
+      "オン",
+      "イン"
+    ],
+    "kunyomi": [
+      "おと (sound)",
+      "ね (sound)"
+    ],
+    "examples": [
+      {
+        "japanese": "音楽 (おんがく)",
+        "english": "Music"
+      },
+      {
+        "japanese": "子音 (しいん)",
+        "english": "Consonant"
+      },
+      {
+        "japanese": "足音 (あしおと)",
+        "english": "Footsteps"
+      }
+    ]
+  },
+  {
+    "id": "n4_005",
+    "kanji": "春",
+    "level": "N4",
+    "strokes": 9,
+    "meanings": [
+      "Spring"
+    ],
+    "onyomi": [
+      "シュン"
+    ],
+    "kunyomi": [
+      "はる (spring)"
+    ],
+    "examples": [
+      {
+        "japanese": "青春 (せいしゅん)",
+        "english": "Youth"
+      },
+      {
+        "japanese": "立春 (りっしゅん)",
+        "english": "First day of spring"
+      },
+      {
+        "japanese": "春休み (はるやすみ)",
+        "english": "Spring vacation"
+      }
+    ]
+  },
+  {
+    "id": "n4_006",
+    "kanji": "夏",
+    "level": "N4",
+    "strokes": 10,
+    "meanings": [
+      "Summer"
+    ],
+    "onyomi": [
+      "カ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "なつ (summer)"
+    ],
+    "examples": [
+      {
+        "japanese": "初夏 (しょか)",
+        "english": "Early summer"
+      },
+      {
+        "japanese": "夏至 (げし)",
+        "english": "Summer solstice"
+      },
+      {
+        "japanese": "夏休み (なつやすみ)",
+        "english": "Summer vacation"
+      }
+    ]
+  },
+  {
+    "id": "n4_007",
+    "kanji": "秋",
+    "level": "N4",
+    "strokes": 9,
+    "meanings": [
+      "Autumn"
+    ],
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": [
+      "あき (autumn)"
+    ],
+    "examples": [
+      {
+        "japanese": "晩秋 (ばんしゅう)",
+        "english": "Late autumn"
+      },
+      {
+        "japanese": "秋風 (あきかぜ)",
+        "english": "Autumn breeze"
+      }
+    ]
+  },
+  {
+    "id": "n4_008",
+    "kanji": "冬",
+    "level": "N4",
+    "strokes": 5,
+    "meanings": [
+      "Winter"
+    ],
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "ふゆ (winter)"
+    ],
+    "examples": [
+      {
+        "japanese": "暖冬 (だんとう)",
+        "english": "Mild winter"
+      },
+      {
+        "japanese": "冬休み (ふゆやすみ)",
+        "english": "Winter vacation"
+      }
+    ]
+  },
+  {
+    "id": "n4_009",
+    "kanji": "思",
+    "level": "N4",
+    "strokes": 9,
+    "meanings": [
+      "Think"
+    ],
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "おも-う (think)"
+    ],
+    "examples": [
+      {
+        "japanese": "思考 (しこう)",
+        "english": "Thought"
+      },
+      {
+        "japanese": "思い出す (おもいだす)",
+        "english": "To remember"
+      }
+    ]
+  },
+  {
+    "id": "n4_010",
+    "kanji": "歩",
+    "level": "N4",
+    "strokes": 8,
+    "meanings": [
+      "Walk"
+    ],
+    "onyomi": [
+      "ホ",
+      "ボ",
+      "フ"
+    ],
+    "kunyomi": [
+      "ある-く (walk)",
+      "あゆ-む (walk)"
+    ],
+    "examples": [
+      {
+        "japanese": "歩道 (ほどう)",
+        "english": "Sidewalk"
+      },
+      {
+        "japanese": "一歩 (いっぽ)",
+        "english": "One step"
+      }
+    ]
+  },
+  {
+    "id": "n4_011",
+    "kanji": "悪",
+    "level": "N4",
+    "strokes": 11,
+    "meanings": [
+      "Bad",
+      "Evil"
+    ],
+    "onyomi": [
+      "アク",
+      "オ"
+    ],
+    "kunyomi": [
+      "わる-い (bad)"
+    ],
+    "examples": [
+      {
+        "japanese": "悪人 (あくにん)",
+        "english": "Bad person"
+      },
+      {
+        "japanese": "悪寒 (おかん)",
+        "english": "Chills"
+      }
+    ]
+  },
+  {
+    "id": "n4_012",
+    "kanji": "強",
+    "level": "N4",
+    "strokes": 11,
+    "meanings": [
+      "Strong"
+    ],
+    "onyomi": [
+      "キョウ",
+      "ゴウ"
+    ],
+    "kunyomi": [
+      "つよ-い (strong)",
+      "し-いる (force)"
+    ],
+    "examples": [
+      {
+        "japanese": "強力 (きょうりょく)",
+        "english": "Powerful"
+      },
+      {
+        "japanese": "強引 (ごういん)",
+        "english": "Overbearing"
+      }
+    ]
+  },
+  {
+    "id": "n4_013",
+    "kanji": "夜",
+    "level": "N4",
+    "strokes": 8,
+    "meanings": [
+      "Night"
+    ],
+    "onyomi": [
+      "ヤ"
+    ],
+    "kunyomi": [
+      "よる (night)",
+      "よ (night)"
+    ],
+    "examples": [
+      {
+        "japanese": "今夜 (こんや)",
+        "english": "Tonight"
+      },
+      {
+        "japanese": "夜中 (よなか)",
+        "english": "Middle of the night"
+      }
+    ]
+  },
+  {
+    "id": "n3_001",
+    "kanji": "愛",
+    "level": "N3",
+    "strokes": 13,
+    "meanings": [
+      "Love",
+      "Affection"
+    ],
+    "onyomi": [
+      "アイ"
+    ],
+    "kunyomi": [
+      "いと-しい (beloved / dear)"
+    ],
+    "examples": [
+      {
+        "japanese": "愛情 (あいじょう)",
+        "english": "Affection"
+      },
+      {
+        "japanese": "恋愛 (れんあい)",
+        "english": "Romance"
+      },
+      {
+        "japanese": "可愛い (かわいい)",
+        "english": "Cute"
+      }
+    ]
+  },
+  {
+    "id": "n3_002",
+    "kanji": "幸",
+    "level": "N3",
+    "strokes": 8,
+    "meanings": [
+      "Happiness",
+      "Luck"
+    ],
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "しあわ-せ (happiness)",
+      "さいわ-い (good fortune)"
+    ],
+    "examples": [
+      {
+        "japanese": "幸福 (こうふく)",
+        "english": "Happiness"
+      },
+      {
+        "japanese": "不幸 (ふこう)",
+        "english": "Misfortune"
+      }
+    ]
+  },
+  {
+    "id": "n3_003",
+    "kanji": "悲",
+    "level": "N3",
+    "strokes": 12,
+    "meanings": [
+      "Sad",
+      "Grief"
+    ],
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "かな-しい (sad)",
+      "かな-しむ (to feel sad)"
+    ],
+    "examples": [
+      {
+        "japanese": "悲劇 (ひげき)",
+        "english": "Tragedy"
+      },
+      {
+        "japanese": "悲観 (ひかん)",
+        "english": "Pessimism"
+      }
+    ]
+  },
+  {
+    "id": "n3_004",
+    "kanji": "眠",
+    "level": "N3",
+    "strokes": 10,
+    "meanings": [
+      "Sleep"
+    ],
+    "onyomi": [
+      "ミン"
+    ],
+    "kunyomi": [
+      "ねむ-る (to sleep)",
+      "ねむ-い (sleepy)"
+    ],
+    "examples": [
+      {
+        "japanese": "睡眠 (すいみん)",
+        "english": "Sleep"
+      },
+      {
+        "japanese": "居眠り (いねむり)",
+        "english": "Nodding off"
+      }
+    ]
+  },
+  {
+    "id": "n3_005",
+    "kanji": "勝",
+    "level": "N3",
+    "strokes": 12,
+    "meanings": [
+      "Win",
+      "Victory"
+    ],
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "か-つ (to win)",
+      "まさ-る (to excel)"
+    ],
+    "examples": [
+      {
+        "japanese": "優勝 (ゆうしょう)",
+        "english": "Championship"
+      },
+      {
+        "japanese": "勝負 (しょうぶ)",
+        "english": "Match / Contest"
+      }
+    ]
+  },
+  {
+    "id": "n3_006",
+    "kanji": "感",
+    "level": "N3",
+    "strokes": 13,
+    "meanings": [
+      "Feeling"
+    ],
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [],
+    "examples": [
+      {
+        "japanese": "感情 (かんじょう)",
+        "english": "Emotion"
+      },
+      {
+        "japanese": "感心 (かんしん)",
+        "english": "Admiration"
+      }
+    ]
+  },
+  {
+    "id": "n3_007",
+    "kanji": "情",
+    "level": "N3",
+    "strokes": 11,
+    "meanings": [
+      "Emotion"
+    ],
+    "onyomi": [
+      "ジョウ"
+    ],
+    "kunyomi": [
+      "なさ-け (sympathy)"
+    ],
+    "examples": [
+      {
+        "japanese": "愛情 (あいじょう)",
+        "english": "Affection"
+      },
+      {
+        "japanese": "友情 (ゆうじょう)",
+        "english": "Friendship"
+      }
+    ]
+  },
+  {
+    "id": "n3_008",
+    "kanji": "泣",
+    "level": "N3",
+    "strokes": 8,
+    "meanings": [
+      "Cry"
+    ],
+    "onyomi": [
+      "キュウ"
+    ],
+    "kunyomi": [
+      "な-く (cry)"
+    ],
+    "examples": [
+      {
+        "japanese": "号泣 (ごうきゅう)",
+        "english": "Wailing"
+      },
+      {
+        "japanese": "泣き声 (なきごえ)",
+        "english": "Crying voice"
+      }
+    ]
+  },
+  {
+    "id": "n3_009",
+    "kanji": "笑",
+    "level": "N3",
+    "strokes": 10,
+    "meanings": [
+      "Laugh"
+    ],
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "わら-う (laugh)",
+      "え-む (smile)"
+    ],
+    "examples": [
+      {
+        "japanese": "爆笑 (ばくしょう)",
+        "english": "Roar of laughter"
+      },
+      {
+        "japanese": "笑顔 (えがお)",
+        "english": "Smiling face"
+      }
+    ]
+  },
+  {
+    "id": "n3_010",
+    "kanji": "薬",
+    "level": "N3",
+    "strokes": 16,
+    "meanings": [
+      "Medicine"
+    ],
+    "onyomi": [
+      "ヤク"
+    ],
+    "kunyomi": [
+      "くすり (medicine)"
+    ],
+    "examples": [
+      {
+        "japanese": "薬局 (やっきょく)",
+        "english": "Pharmacy"
+      },
+      {
+        "japanese": "目薬 (めぐすり)",
+        "english": "Eye drops"
+      }
+    ]
+  },
+  {
+    "id": "n2_001",
+    "kanji": "夢",
+    "level": "N2",
+    "strokes": 13,
+    "meanings": [
+      "Dream",
+      "Vision"
+    ],
+    "onyomi": [
+      "ム"
+    ],
+    "kunyomi": [
+      "ゆめ (dream)"
+    ],
+    "examples": [
+      {
+        "japanese": "夢中 (むちゅう)",
+        "english": "Absorbed in"
+      },
+      {
+        "japanese": "悪夢 (あくむ)",
+        "english": "Nightmare"
+      },
+      {
+        "japanese": "夢見 (ゆめみ)",
+        "english": "Dreaming"
+      }
+    ]
+  },
+  {
+    "id": "n2_002",
+    "kanji": "怒",
+    "level": "N2",
+    "strokes": 9,
+    "meanings": [
+      "Angry"
+    ],
+    "onyomi": [
+      "ド",
+      "ヌ"
+    ],
+    "kunyomi": [
+      "いか-る (to get angry)",
+      "おこ-る (to get angry)"
+    ],
+    "examples": [
+      {
+        "japanese": "激怒 (げきど)",
+        "english": "Rage"
+      },
+      {
+        "japanese": "怒声 (どせい)",
+        "english": "Angry voice"
+      }
+    ]
+  },
+  {
+    "id": "n2_003",
+    "kanji": "恐",
+    "level": "N2",
+    "strokes": 10,
+    "meanings": [
+      "Fear",
+      "Dread"
+    ],
+    "onyomi": [
+      "キョウ"
+    ],
+    "kunyomi": [
+      "おそ-れる (to fear)",
+      "おそ-ろしい (terrible)"
+    ],
+    "examples": [
+      {
+        "japanese": "恐怖 (きょうふ)",
+        "english": "Fear"
+      },
+      {
+        "japanese": "恐妻 (きょうさい)",
+        "english": "Feared wife"
+      }
+    ]
+  },
+  {
+    "id": "n2_004",
+    "kanji": "驚",
+    "level": "N2",
+    "strokes": 22,
+    "meanings": [
+      "Surprise",
+      "Astonish"
+    ],
+    "onyomi": [
+      "キョウ"
+    ],
+    "kunyomi": [
+      "おどろ-く (to be surprised)"
+    ],
+    "examples": [
+      {
+        "japanese": "驚異 (きょうい)",
+        "english": "Wonder / Miracle"
+      },
+      {
+        "japanese": "驚喜 (きょうき)",
+        "english": "Pleasant surprise"
+      }
+    ]
+  },
+  {
+    "id": "n2_005",
+    "kanji": "痛",
+    "level": "N2",
+    "strokes": 12,
+    "meanings": [
+      "Pain",
+      "Hurt"
+    ],
+    "onyomi": [
+      "ツウ"
+    ],
+    "kunyomi": [
+      "いた-い (painful)",
+      "いた-む (to hurt)"
+    ],
+    "examples": [
+      {
+        "japanese": "頭痛 (ずつう)",
+        "english": "Headache"
+      }
+    ]
+  },
+  {
+    "id": "n2_006",
+    "kanji": "疲",
+    "level": "N2",
+    "strokes": 10,
+    "meanings": [
+      "Tired"
+    ],
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "つか-れる (to get tired)"
+    ],
+    "examples": [
+      {
+        "japanese": "疲労 (ひろう)",
+        "english": "Fatigue"
+      }
+    ]
+  },
+  {
+    "id": "n2_007",
+    "kanji": "悩",
+    "level": "N2",
+    "strokes": 10,
+    "meanings": [
+      "Worry"
+    ],
+    "onyomi": [
+      "ノウ"
+    ],
+    "kunyomi": [
+      "なや-む (to worry)"
+    ],
+    "examples": [
+      {
+        "japanese": "苦悩 (くのう)",
+        "english": "Suffering"
+      }
+    ]
+  },
+  {
+    "id": "n1_001",
+    "kanji": "響",
+    "level": "N1",
+    "strokes": 20,
+    "meanings": [
+      "Echo",
+      "Resonate"
+    ],
+    "onyomi": [
+      "キョウ"
+    ],
+    "kunyomi": [
+      "ひび-く (to echo)"
+    ],
+    "examples": [
+      {
+        "japanese": "影響 (えいきょう)",
+        "english": "Influence"
+      },
+      {
+        "japanese": "音響 (おんきょう)",
+        "english": "Sound / Acoustics"
+      }
+    ]
+  },
+  {
+    "id": "n1_002",
+    "kanji": "幻",
+    "level": "N1",
+    "strokes": 4,
+    "meanings": [
+      "Illusion",
+      "Phantom"
+    ],
+    "onyomi": [
+      "ゲン"
+    ],
+    "kunyomi": [
+      "まぼろし (phantom / illusion)"
+    ],
+    "examples": [
+      {
+        "japanese": "幻覚 (げんかく)",
+        "english": "Hallucination"
+      },
+      {
+        "japanese": "幻滅 (げんめつ)",
+        "english": "Disillusionment"
+      },
+      {
+        "japanese": "幻想 (げんそう)",
+        "english": "Fantasy"
+      }
+    ]
+  },
+  {
+    "id": "n1_003",
+    "kanji": "獣",
+    "level": "N1",
+    "strokes": 15,
+    "meanings": [
+      "Beast",
+      "Animal"
+    ],
+    "onyomi": [
+      "ジュウ"
+    ],
+    "kunyomi": [
+      "けもの (beast)"
+    ],
+    "examples": [
+      {
+        "japanese": "猛獣 (もうじゅう)",
+        "english": "Fierce beast"
+      },
+      {
+        "japanese": "獣医 (じゅうい)",
+        "english": "Veterinarian"
+      },
+      {
+        "japanese": "野獣 (やじゅう)",
+        "english": "Wild beast"
+      }
+    ]
+  },
+  {
+    "id": "n1_004",
+    "kanji": "刃",
+    "level": "N1",
+    "strokes": 3,
+    "meanings": [
+      "Blade",
+      "Sword"
+    ],
+    "onyomi": [
+      "ジン",
+      "ニン"
+    ],
+    "kunyomi": [
+      "は (blade)"
+    ],
+    "examples": [
+      {
+        "japanese": "凶刃 (きょうじん)",
+        "english": "Assassin's dagger"
+      },
+      {
+        "japanese": "刃傷 (にんじょう)",
+        "english": "Bloodshed"
+      },
+      {
+        "japanese": "刃物 (はもの)",
+        "english": "Edged tool"
+      }
+    ]
+  },
+  {
+    "id": "n1_005",
+    "kanji": "魂",
+    "level": "N1",
+    "strokes": 14,
+    "meanings": [
+      "Soul",
+      "Spirit"
+    ],
+    "onyomi": [
+      "コン"
+    ],
+    "kunyomi": [
+      "たましい (soul)"
+    ],
+    "examples": [
+      {
+        "japanese": "霊魂 (れいこん)",
+        "english": "Spirit"
+      },
+      {
+        "japanese": "商魂 (しょうこん)",
+        "english": "Commercial spirit"
+      },
+      {
+        "japanese": "魂魄 (こんぱく)",
+        "english": "Soul / Spirit"
+      }
+    ]
+  },
+  {
+    "id": "n1_006",
+    "kanji": "覇",
+    "level": "N1",
+    "strokes": 19,
+    "meanings": [
+      "Hegemony"
+    ],
+    "onyomi": [
+      "ハ"
+    ],
+    "kunyomi": [],
+    "examples": [
+      {
+        "japanese": "制覇 (せいは)",
+        "english": "Conquest"
+      },
+      {
+        "japanese": "覇者 (はしゃ)",
+        "english": "Champion"
+      }
+    ]
+  },
+  {
+    "id": "n1_007",
+    "kanji": "翼",
+    "level": "N1",
+    "strokes": 17,
+    "meanings": [
+      "Wing"
+    ],
+    "onyomi": [
+      "ヨク"
+    ],
+    "kunyomi": [
+      "つばさ (wing)"
+    ],
+    "examples": [
+      {
+        "japanese": "右翼 (うよく)",
+        "english": "Right wing"
+      }
+    ]
+  },
+  {
+    "id": "n1_008",
+    "kanji": "盾",
+    "level": "N1",
+    "strokes": 9,
+    "meanings": [
+      "Shield"
+    ],
+    "onyomi": [
+      "ジュン"
+    ],
+    "kunyomi": [
+      "たて (shield)"
+    ],
+    "examples": [
+      {
+        "japanese": "矛盾 (むじゅん)",
+        "english": "Contradiction"
+      }
+    ]
+  }
+]
