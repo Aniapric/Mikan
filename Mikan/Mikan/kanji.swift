@@ -35,7 +35,23 @@ struct Kanji: Identifiable, Codable, Hashable {
     )
 }
 
-// JLPT levels for filtering
+// App Group shared storage container
+public struct SharedStorage {
+    public static let suiteName = "group.com.aniapricop.Mikan"
+    public static let levelKey = "mikan_selected_level"
+    public static let modeKey = "mikan_navigation_mode"
+    public static let favoritesKey = "mikan_favorite_ids"
+    public static let currentKanjiKey = "mikan_current_kanji_id"
+    
+    public static var defaults: UserDefaults {
+        if let shared = UserDefaults(suiteName: suiteName) {
+            return shared
+        }
+        return UserDefaults.standard
+    }
+}
+
+// JLPT levels for filtering, including saved favorites
 enum JLPTLevel: String, CaseIterable, Identifiable, Codable {
     case all = "All"
     case n5 = "N5"
@@ -43,22 +59,35 @@ enum JLPTLevel: String, CaseIterable, Identifiable, Codable {
     case n3 = "N3"
     case n2 = "N2"
     case n1 = "N1"
+    case favorites = "★ Saved"
     
     var id: String { rawValue }
 }
 
-// Manages kanji list, filtering, and navigation
+// Order of browsing kanji
+enum NavigationMode: String, CaseIterable, Identifiable, Codable {
+    case inOrder = "In Order"
+    case random = "Random"
+    
+    var id: String { rawValue }
+}
+
+// Manages kanji list, filtering, favorites, and persistent storage
 @MainActor
 class KanjiStore: ObservableObject {
     @Published var allKanjis: [Kanji] = []
-    @Published var selectedLevel: JLPTLevel = .n5
+    @Published var selectedLevel: JLPTLevel = .all
+    @Published var navigationMode: NavigationMode = .inOrder
+    @Published var favoriteIDs: Set<String> = []
     @Published var currentIndex: Int = 0
     
-    // Filter kanjis by selected JLPT level
+    // Filter kanjis based on selected level or favorites
     var filteredKanjis: [Kanji] {
         switch selectedLevel {
         case .all:
             return allKanjis
+        case .favorites:
+            return allKanjis.filter { favoriteIDs.contains($0.id) }
         case .n5, .n4, .n3, .n2, .n1:
             return allKanjis.filter { $0.level.uppercased() == selectedLevel.rawValue.uppercased() }
         }
@@ -73,6 +102,12 @@ class KanjiStore: ObservableObject {
         return filteredKanjis[safeIndex]
     }
     
+    // Check if the current kanji is bookmarked as favorite
+    var isCurrentFavorite: Bool {
+        guard !filteredKanjis.isEmpty else { return false }
+        return favoriteIDs.contains(currentKanji.id)
+    }
+    
     var canGoBack: Bool {
         return currentIndex > 0
     }
@@ -82,6 +117,7 @@ class KanjiStore: ObservableObject {
     }
     
     init() {
+        loadPreferences()
         loadKanjis()
     }
     
@@ -97,30 +133,80 @@ class KanjiStore: ObservableObject {
             let decoder = JSONDecoder()
             self.allKanjis = try decoder.decode([Kanji].self, from: data)
             print("Loaded \(allKanjis.count) kanji successfully")
+            
+            // Restore position if previously saved
+            let defaults = SharedStorage.defaults
+            if let savedId = defaults.string(forKey: SharedStorage.currentKanjiKey),
+               let idx = filteredKanjis.firstIndex(where: { $0.id == savedId }) {
+                self.currentIndex = idx
+            }
         } catch {
             print("Error parsing kanji.json: \(error)")
         }
+    }
+    
+    // Load saved preferences from shared UserDefaults
+    private func loadPreferences() {
+        let defaults = SharedStorage.defaults
+        if let savedLevelRaw = defaults.string(forKey: SharedStorage.levelKey),
+           let savedLevel = JLPTLevel(rawValue: savedLevelRaw) {
+            self.selectedLevel = savedLevel
+        }
+        if let savedModeRaw = defaults.string(forKey: SharedStorage.modeKey),
+           let savedMode = NavigationMode(rawValue: savedModeRaw) {
+            self.navigationMode = savedMode
+        }
+        if let savedFavs = defaults.stringArray(forKey: SharedStorage.favoritesKey) {
+            self.favoriteIDs = Set(savedFavs)
+        }
+    }
+    
+    // Save current settings and position
+    private func savePreferences() {
+        let defaults = SharedStorage.defaults
+        defaults.set(selectedLevel.rawValue, forKey: SharedStorage.levelKey)
+        defaults.set(navigationMode.rawValue, forKey: SharedStorage.modeKey)
+        defaults.set(Array(favoriteIDs), forKey: SharedStorage.favoritesKey)
+        defaults.set(currentKanji.id, forKey: SharedStorage.currentKanjiKey)
+    }
+    
+    // Toggle favorite status for a kanji
+    func toggleFavorite(id: String) {
+        if favoriteIDs.contains(id) {
+            favoriteIDs.remove(id)
+        } else {
+            favoriteIDs.insert(id)
+        }
+        savePreferences()
     }
     
     // Change active JLPT level
     func setLevel(_ level: JLPTLevel) {
         self.selectedLevel = level
         self.currentIndex = 0
+        savePreferences()
+    }
+    
+    // Switch between sequential and random browsing
+    func toggleNavigationMode() {
+        self.navigationMode = (navigationMode == .inOrder) ? .random : .inOrder
+        savePreferences()
     }
     
     // Navigation helpers
     func nextKanji() {
-        guard canGoForward else { return }
-        currentIndex += 1
+        if navigationMode == .random && !filteredKanjis.isEmpty {
+            currentIndex = Int.random(in: 0..<filteredKanjis.count)
+        } else {
+            guard canGoForward else { return }
+            currentIndex += 1
+        }
+        savePreferences()
     }
     
     func previousKanji() {
         guard canGoBack else { return }
         currentIndex -= 1
-    }
-    
-    func randomKanji() {
-        guard !filteredKanjis.isEmpty else { return }
-        currentIndex = Int.random(in: 0..<filteredKanjis.count)
+        savePreferences()
     }
 }
