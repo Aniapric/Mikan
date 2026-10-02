@@ -395,5 +395,23 @@ class KanjiStore: ObservableObject {
         }
         syncToWidget(resetAnchor: true)
     }
+    
+    func selectKanji(byId targetId: String) {
+        guard let targetKanji = allKanjis.first(where: { $0.id == targetId }) else { return }
+        
+        if !filteredKanjis.contains(where: { $0.id == targetId }) {
+            if let levelEnum = JLPTLevel(rawValue: targetKanji.level) {
+                selectedLevel = levelEnum
+            } else {
+                selectedLevel = .all
+            }
+        }
+        
+        if let idx = filteredKanjis.firstIndex(where: { $0.id == targetId }) {
+            currentIndex = idx
+            randomHistory.removeAll()
+        }
+        syncToWidget(resetAnchor: true)
+    }
 }
 

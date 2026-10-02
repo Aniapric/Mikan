@@ -138,19 +138,153 @@ struct Provider: TimelineProvider {
 struct KanjiWidgetEntryView: View {
     var entry: Provider.Entry
 
+    @Environment(\.widgetFamily) var family
+
     var body: some View {
-        HomeScreenWidgetView(entry: entry)
-            .widgetBackground(
-                LinearGradient(
-                    colors: [
-                        Color(red: 0.996, green: 0.984, blue: 0.976),
-                        Color(red: 0.985, green: 0.935, blue: 0.942),
-                        Color(red: 0.965, green: 0.880, blue: 0.900)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
+        switch family {
+        case .accessoryRectangular:
+            AccessoryRectangularView(entry: entry)
+                .widgetBackground(Color.clear)
+        case .accessoryInline:
+            AccessoryInlineView(entry: entry)
+        case .accessoryCircular:
+            AccessoryCircularView(entry: entry)
+                .widgetBackground(Color.clear)
+        default:
+            HomeScreenWidgetView(entry: entry)
+                .widgetBackground(
+                    LinearGradient(
+                        colors: [
+                            Color(red: 0.996, green: 0.984, blue: 0.976),
+                            Color(red: 0.985, green: 0.935, blue: 0.942),
+                            Color(red: 0.965, green: 0.880, blue: 0.900)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
                 )
-            )
+        }
+    }
+}
+
+struct AccessoryRectangularView: View {
+    var entry: Provider.Entry
+    
+    var reading: String {
+        if let on = entry.kanji.onyomi.first, !on.isEmpty {
+            return on
+        }
+        if let kun = entry.kanji.kunyomi.first, !kun.isEmpty {
+            return kun
+        }
+        return entry.kanji.level
+    }
+    
+    var secondaryReading: String? {
+        if !entry.kanji.kunyomi.isEmpty && entry.kanji.onyomi.first != nil {
+            return entry.kanji.kunyomi.first
+        }
+        return nil
+    }
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 10) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text(reading)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                
+                Text(entry.kanji.kanji)
+                    .font(.system(size: 44, weight: .bold))
+                    .minimumScaleFactor(0.8)
+                    .lineLimit(1)
+            }
+            .frame(minWidth: 46, alignment: .leading)
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text(entry.kanji.meanings.joined(separator: ", "))
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                
+                if let example = entry.kanji.examples.first {
+                    Text(example.japanese)
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                } else if let sec = secondaryReading {
+                    Text("Kun: \(sec)")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                } else {
+                    Text(entry.kanji.level)
+                        .font(.system(size: 10, weight: .heavy))
+                        .foregroundColor(.secondary)
+                }
+            }
+            
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .widgetURL(URL(string: "mikan://kanji?id=\(entry.kanji.id)"))
+    }
+}
+
+struct AccessoryInlineView: View {
+    var entry: Provider.Entry
+    
+    var body: some View {
+        let reading = entry.kanji.onyomi.first ?? entry.kanji.kunyomi.first ?? ""
+        let meaning = entry.kanji.meanings.first ?? ""
+        ViewThatFits {
+            Text("\(entry.kanji.kanji) (\(reading)) • \(meaning)")
+            Text("\(entry.kanji.kanji) • \(meaning)")
+            Text(entry.kanji.kanji)
+        }
+        .widgetURL(URL(string: "mikan://kanji?id=\(entry.kanji.id)"))
+    }
+}
+
+struct AccessoryCircularView: View {
+    var entry: Provider.Entry
+    
+    var reading: String {
+        if let on = entry.kanji.onyomi.first, !on.isEmpty {
+            return on
+        }
+        if let kun = entry.kanji.kunyomi.first, !kun.isEmpty {
+            return kun
+        }
+        return entry.kanji.level
+    }
+    
+    var meaning: String {
+        entry.kanji.meanings.first ?? ""
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            Text(reading)
+                .font(.system(size: 11, weight: .bold))
+                .foregroundColor(.secondary)
+                .lineLimit(1)
+            
+            Text(entry.kanji.kanji)
+                .font(.system(size: 38, weight: .bold))
+                .minimumScaleFactor(0.8)
+                .lineLimit(1)
+            
+            Text(meaning)
+                .font(.system(size: 11, weight: .bold))
+                .foregroundColor(.primary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .widgetURL(URL(string: "mikan://kanji?id=\(entry.kanji.id)"))
     }
 }
 
@@ -209,6 +343,7 @@ struct HomeScreenWidgetView: View {
             RoundedRectangle(cornerRadius: 18)
                 .stroke(Color(red: 0.93, green: 0.83, blue: 0.84), lineWidth: 1.2)
         )
+        .widgetURL(URL(string: "mikan://kanji?id=\(entry.kanji.id)"))
     }
 }
 
@@ -232,9 +367,12 @@ struct KanjiWidget: Widget {
             KanjiWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Daily Kanji")
-        .description("Learn a new JLPT Kanji daily on your Home Screen.")
+        .description("Learn a new JLPT Kanji daily on your Home Screen and Lock Screen.")
         .supportedFamilies([
-            .systemSmall
+            .systemSmall,
+            .accessoryRectangular,
+            .accessoryInline,
+            .accessoryCircular
         ])
     }
 }
