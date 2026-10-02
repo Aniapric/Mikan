@@ -17,7 +17,7 @@ struct ContentView: View {
             Color(red: 0.97, green: 0.96, blue: 0.95)
                 .ignoresSafeArea()
             
-            VStack(spacing: 20) {
+            VStack(spacing: 16) {
                 // Header with title and counter
                 HStack {
                     Text("Daily Kanji")
@@ -39,7 +39,7 @@ struct ContentView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
                 
-                // JLPT level selector
+                // JLPT level selector with favorites tab
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(JLPTLevel.allCases) { level in
@@ -50,24 +50,81 @@ struct ContentView: View {
                                     store.setLevel(level)
                                 }
                             }) {
-                                Text(level.rawValue)
-                                    .font(.caption.bold())
-                                    .padding(.horizontal, 14)
-                                    .padding(.vertical, 8)
-                                    .background(
-                                        Capsule()
-                                            .fill(isSelected ? pinkAccent : cardBackground)
-                                    )
-                                    .overlay(
-                                        Capsule()
-                                            .stroke(isSelected ? Color.clear : cardBorder, lineWidth: 1)
-                                    )
-                                    .foregroundColor(isSelected ? .white : textGray)
+                                HStack(spacing: 4) {
+                                    Text(level.rawValue)
+                                        .font(.caption.bold())
+                                    
+                                    // Badge showing number of saved favorites
+                                    if level == .favorites && !store.favoriteIDs.isEmpty {
+                                        Text("\(store.favoriteIDs.count)")
+                                            .font(.system(size: 10, weight: .bold))
+                                            .padding(.horizontal, 5)
+                                            .padding(.vertical, 1)
+                                            .background(Capsule().fill(isSelected ? Color.white.opacity(0.3) : pinkAccent))
+                                            .foregroundColor(.white)
+                                    }
+                                }
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .background(
+                                    Capsule()
+                                        .fill(isSelected ? pinkAccent : cardBackground)
+                                )
+                                .overlay(
+                                    Capsule()
+                                        .stroke(isSelected ? Color.clear : cardBorder, lineWidth: 1)
+                                )
+                                .foregroundColor(isSelected ? .white : textGray)
                             }
                         }
                     }
                     .padding(.horizontal, 24)
                 }
+                
+                // Action bar: browsing mode and favorite button
+                HStack {
+                    // Toggle sequential vs random mode
+                    Button(action: {
+                        store.toggleNavigationMode()
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: store.navigationMode == .random ? "shuffle" : "arrow.forward")
+                                .font(.caption.bold())
+                                .foregroundColor(pinkAccent)
+                            Text(store.navigationMode.rawValue)
+                                .font(.caption.bold())
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Capsule().fill(cardBackground))
+                        .overlay(Capsule().stroke(cardBorder, lineWidth: 1))
+                        .foregroundColor(textGray)
+                    }
+                    
+                    Spacer()
+                    
+                    // Bookmark as favorite button
+                    if !store.filteredKanjis.isEmpty {
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                                store.toggleFavorite(id: store.currentKanji.id)
+                            }
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: store.isCurrentFavorite ? "star.fill" : "star")
+                                    .foregroundColor(store.isCurrentFavorite ? .yellow : textGray)
+                                Text(store.isCurrentFavorite ? "Saved" : "Save")
+                                    .font(.caption.bold())
+                                    .foregroundColor(textGray)
+                            }
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Capsule().fill(cardBackground))
+                            .overlay(Capsule().stroke(cardBorder, lineWidth: 1))
+                        }
+                    }
+                }
+                .padding(.horizontal, 24)
                 
                 Spacer()
                 
@@ -169,7 +226,7 @@ struct ContentView: View {
         )
     }
     
-    // Front side: kanji character and stroke count
+    // Front side: kanji character, level badge and favorite star
     private var cardFront: some View {
         VStack(spacing: 16) {
             HStack {
@@ -179,6 +236,12 @@ struct ContentView: View {
                     .padding(.vertical, 4)
                     .background(Capsule().fill(pinkAccent.opacity(0.15)))
                     .foregroundColor(pinkAccent)
+                
+                if store.isCurrentFavorite {
+                    Image(systemName: "star.fill")
+                        .font(.caption)
+                        .foregroundColor(.yellow)
+                }
                 
                 Spacer()
                 
