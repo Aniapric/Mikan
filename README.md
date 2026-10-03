@@ -1,4 +1,4 @@
-# Mikan (蜜柑)
+# Mikan 
 
 Mikan is an iOS app built with SwiftUI and WidgetKit for practicing Japanese Kanji daily. It includes interactive flashcards covering JLPT levels N5 through N1, along with Home Screen and Lock Screen widgets that update throughout the day.
 
