@@ -3,11 +3,13 @@ import SwiftUI
 import Combine
 import WidgetKit
 
+// example sentence model
 struct Example: Codable, Hashable {
     let japanese: String
     let english: String
 }
 
+// kanji character model
 struct Kanji: Identifiable, Codable, Hashable {
     let id: String
     let kanji: String
@@ -18,6 +20,7 @@ struct Kanji: Identifiable, Codable, Hashable {
     let kunyomi: [String]
     let examples: [Example]
     
+    // sample kanji for previews and fallbacks
     static let sample = Kanji(
         id: "n5_1",
         kanji: "日",
@@ -33,6 +36,7 @@ struct Kanji: Identifiable, Codable, Hashable {
     )
 }
 
+// app group shared userdefaults keys
 public struct SharedStorage {
     public static let suiteName = "group.com.aniapricop.Mikan"
     public static let levelKey = "mikan_selected_level"
@@ -44,6 +48,7 @@ public struct SharedStorage {
     public static let frequencyKey = "mikan_update_frequency"
     public static let customHoursKey = "mikan_custom_hours"
     
+    // shared userdefaults instance
     public static var defaults: UserDefaults {
         if let shared = UserDefaults(suiteName: suiteName) {
             return shared
@@ -52,6 +57,7 @@ public struct SharedStorage {
     }
 }
 
+// jlpt difficulty level enum
 enum JLPTLevel: String, CaseIterable, Identifiable, Codable {
     case all = "All"
     case n5 = "N5"
@@ -64,6 +70,7 @@ enum JLPTLevel: String, CaseIterable, Identifiable, Codable {
     var id: String { rawValue }
 }
 
+// study progression mode
 enum NavigationMode: String, CaseIterable, Identifiable, Codable {
     case inOrder = "In Order"
     case random = "Random"
@@ -71,6 +78,7 @@ enum NavigationMode: String, CaseIterable, Identifiable, Codable {
     var id: String { rawValue }
 }
 
+// widget update frequency options
 enum UpdateFrequencyType: String, CaseIterable, Identifiable, Codable {
     case daily = "Daily (24h)"
     case twiceDaily = "2x / Day (12h)"
@@ -100,6 +108,7 @@ enum UpdateFrequencyType: String, CaseIterable, Identifiable, Codable {
         }
     }
     
+    // calculate hour interval
     func hourInterval(customHours: Int) -> Int {
         switch self {
         case .daily: return 24
@@ -110,6 +119,7 @@ enum UpdateFrequencyType: String, CaseIterable, Identifiable, Codable {
         }
     }
     
+    // backwards compatibility initializer
     init?(rawValue: String) {
         switch rawValue {
         case "Daily (24h)", "1 / zi (24h)": self = .daily
@@ -122,6 +132,7 @@ enum UpdateFrequencyType: String, CaseIterable, Identifiable, Codable {
     }
 }
 
+// main app state store and widget sync manager
 @MainActor
 class KanjiStore: ObservableObject {
     @Published var allKanjis: [Kanji] = []
@@ -143,6 +154,7 @@ class KanjiStore: ObservableObject {
         filteredKanjis
     }
     
+    // filter kanji by selected jlpt level or favorites
     var filteredKanjis: [Kanji] {
         switch selectedLevel {
         case .all:
@@ -154,6 +166,7 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // active kanji on display
     var currentKanji: Kanji {
         guard !filteredKanjis.isEmpty else {
             return Kanji.sample
@@ -162,11 +175,13 @@ class KanjiStore: ObservableObject {
         return filteredKanjis[safeIndex]
     }
     
+    // check if active kanji is saved
     var isCurrentFavorite: Bool {
         guard !filteredKanjis.isEmpty else { return false }
         return favoriteIDs.contains(currentKanji.id)
     }
     
+    // backwards navigation availability
     var canGoBack: Bool {
         if navigationMode == .inOrder {
             return currentIndex > 0
@@ -175,6 +190,7 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // forward navigation availability
     var canGoForward: Bool {
         if navigationMode == .inOrder {
             return currentIndex < filteredKanjis.count - 1
@@ -183,11 +199,13 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // store initialization
     init() {
         loadPreferences()
         loadKanjis()
     }
     
+    // function for loading kanji from json
     func loadKanjis() {
         if let url = Bundle.main.url(forResource: "kanji", withExtension: "json") {
             do {
@@ -206,6 +224,7 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // load persisted settings from userdefaults
     private func loadPreferences() {
         let defaults = SharedStorage.defaults
         if let savedLevelRaw = defaults.string(forKey: SharedStorage.levelKey),
@@ -232,6 +251,7 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // restore active kanji or compute scheduled rotation
     private func restoreOrComputeCurrentKanji() {
         let calendar = Calendar.current
         let now = Date()
@@ -270,6 +290,7 @@ class KanjiStore: ObservableObject {
         WidgetCenter.shared.reloadAllTimelines()
     }
     
+    // save user settings and anchor date to shared storage
     private func savePreferences(resetAnchor: Bool = false) {
         let defaults = SharedStorage.defaults
         let now = Date()
@@ -306,12 +327,14 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // sync active kanji with widget and reload timeline
     func syncToWidget(resetAnchor: Bool = false) {
         savePreferences(resetAnchor: resetAnchor)
         WidgetCenter.shared.reloadAllTimelines()
         print("Synced widget with kanji: \(currentKanji.kanji) (Level: \(currentKanji.level))")
     }
     
+    // filter kanji by jlpt level
     func setLevel(_ level: JLPTLevel) {
         selectedLevel = level
         currentIndex = 0
@@ -319,21 +342,25 @@ class KanjiStore: ObservableObject {
         syncToWidget(resetAnchor: true)
     }
     
+    // set sequential or random navigation mode
     func setNavigationMode(_ mode: NavigationMode) {
         navigationMode = mode
         randomHistory.removeAll()
         syncToWidget(resetAnchor: true)
     }
     
+    // toggle navigation mode
     func toggleNavigationMode() {
         setNavigationMode(navigationMode == .inOrder ? .random : .inOrder)
     }
     
+    // update widget refresh frequency
     func setUpdateFrequency(_ freq: UpdateFrequencyType) {
         updateFrequencyType = freq
         syncToWidget(resetAnchor: true)
     }
     
+    // update custom hour interval
     func setCustomHoursInterval(_ hours: Int) {
         customHoursInterval = max(1, min(24, hours))
         if updateFrequencyType == .custom {
@@ -341,6 +368,7 @@ class KanjiStore: ObservableObject {
         }
     }
     
+    // toggle saved favorite state
     func toggleFavorite(id: String) {
         if favoriteIDs.contains(id) {
             favoriteIDs.remove(id)
@@ -353,6 +381,7 @@ class KanjiStore: ObservableObject {
         syncToWidget(resetAnchor: false)
     }
     
+    // navigate to next kanji
     func nextKanji() {
         guard !filteredKanjis.isEmpty else { return }
         
@@ -377,6 +406,7 @@ class KanjiStore: ObservableObject {
         syncToWidget(resetAnchor: true)
     }
     
+    // navigate to previous kanji
     func previousKanji() {
         guard !filteredKanjis.isEmpty else { return }
         
@@ -396,6 +426,7 @@ class KanjiStore: ObservableObject {
         syncToWidget(resetAnchor: true)
     }
     
+    // select specific kanji by id from widget deep link
     func selectKanji(byId targetId: String) {
         guard let targetKanji = allKanjis.first(where: { $0.id == targetId }) else { return }
         
@@ -414,4 +445,3 @@ class KanjiStore: ObservableObject {
         syncToWidget(resetAnchor: true)
     }
 }
-

@@ -1,18 +1,22 @@
 import WidgetKit
 import SwiftUI
 
+// timeline entry with active kanji
 struct KanjiEntry: TimelineEntry {
     let date: Date
     let kanji: Kanji
 }
 
+// timeline provider for widget schedule
 struct Provider: TimelineProvider {
     typealias Entry = KanjiEntry
 
+    // placeholder entry
     func placeholder(in context: Context) -> KanjiEntry {
         KanjiEntry(date: Date(), kanji: Kanji.sample)
     }
 
+    // snapshot for widget gallery
     func getSnapshot(in context: Context, completion: @escaping (KanjiEntry) -> ()) {
         let kanjis = getAvailableKanjis()
         let (_, current, _) = computeCurrentIndexAndNextDate(from: kanjis, hourInterval: 24)
@@ -20,6 +24,7 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
 
+    // generate timeline entries based on frequency and mode
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let kanjis = getAvailableKanjis()
         guard !kanjis.isEmpty else {
@@ -69,6 +74,7 @@ struct Provider: TimelineProvider {
         completion(timeline)
     }
     
+    // load kanji list from bundled json
     private func getAvailableKanjis() -> [Kanji] {
         guard let url = Bundle.main.url(forResource: "kanji", withExtension: "json"),
               let data = try? Data(contentsOf: url),
@@ -96,6 +102,7 @@ struct Provider: TimelineProvider {
         return allKanjis
     }
     
+    // compute active kanji index and next schedule date
     private func computeCurrentIndexAndNextDate(from kanjis: [Kanji], hourInterval: Int) -> (Int, Kanji, Date) {
         guard !kanjis.isEmpty else { return (0, Kanji.sample, Date().addingTimeInterval(3600)) }
         
@@ -135,6 +142,7 @@ struct Provider: TimelineProvider {
     }
 }
 
+// main widget entry view switcher by family
 struct KanjiWidgetEntryView: View {
     var entry: Provider.Entry
 
@@ -167,6 +175,7 @@ struct KanjiWidgetEntryView: View {
     }
 }
 
+// lock screen rectangular accessory view
 struct AccessoryRectangularView: View {
     var entry: Provider.Entry
     
@@ -233,6 +242,7 @@ struct AccessoryRectangularView: View {
     }
 }
 
+// lock screen inline text accessory view
 struct AccessoryInlineView: View {
     var entry: Provider.Entry
     
@@ -248,6 +258,7 @@ struct AccessoryInlineView: View {
     }
 }
 
+// lock screen circular accessory view
 struct AccessoryCircularView: View {
     var entry: Provider.Entry
     
@@ -288,6 +299,7 @@ struct AccessoryCircularView: View {
     }
 }
 
+// home screen small widget view
 struct HomeScreenWidgetView: View {
     var entry: Provider.Entry
 
@@ -347,6 +359,7 @@ struct HomeScreenWidgetView: View {
     }
 }
 
+// container background compatibility helper
 extension View {
     func widgetBackground(_ backgroundView: some View) -> some View {
         if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
@@ -359,6 +372,7 @@ extension View {
     }
 }
 
+// widget definition and configuration
 struct KanjiWidget: Widget {
     let kind: String = "KanjiWidget"
 

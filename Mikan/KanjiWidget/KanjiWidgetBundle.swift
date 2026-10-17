@@ -1,4 +1,4 @@
-
+// widget extension bundle entry point
 import WidgetKit
 import SwiftUI
 
